@@ -1,7 +1,11 @@
 all: vectorSplit converter
+
 vectorSplit:
-    rm vectorSplit
-    g++ vectorSplit.cpp -o vectorSplit -std=c++11
+	g++ vectorSplit.cpp -o vectorSplit -std=c++11
+
 converter:
-    rm converter
-    g++ converter.cpp -o converter -std=c++11
+	g++ converter.cpp -o converter -std=c++11
+
+clean:
+	rm vectorSplit
+	rm converter
