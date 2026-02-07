@@ -32,13 +32,6 @@ int main() {
         }
         cout << endl;
     }
-    
-    
-
-    // MISSING CODE HERE (you can remove these comments)
-    // Get target string from user, get delimiter string from user
-    // Call function split()
-    // What happens next?!!?
 
     return 0;
 }
@@ -55,10 +48,7 @@ vector<string> split(string target, string delimiter){
     string subString = "";
     for (int i = 0; i < target.length(); i++){
         if(target[i] == delimiter[0]){
-           if(subString == ""){
-               subString = "";
-           }
-           else{
+           if(subString != ""){
                 subCollector.push_back(subString);
                 subString = "";
            }

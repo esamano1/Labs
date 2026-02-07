@@ -66,6 +66,7 @@ int bin2d(string binstring){
 string dec2bh(string sdec, char bh){
     int quot(stoi(sdec)), remain(0);
     string hexBin = "";
+
     if (bh == 'b'){
         hexBin += "The value in binary is: ";
         while (quot != 0){
@@ -85,14 +86,16 @@ string dec2bh(string sdec, char bh){
             remain = quot % 16;
             quot = quot / 16;
             int number = 0;
-            for (char hex = '0'; hex <= '9'; hex++){
-                if (remain == number){
-                    hexBin.insert(29, 1, hex);
-                    break;
+            if (remain <= 9){
+                for (char hex = '0'; hex <= '9'; hex++){
+                    if (remain == number){
+                        hexBin.insert(29, 1, hex);
+                        break;
+                    }
+                    number++;
                 }
-                number++;
             }
-            if (number == 10){//i could put if remain >= 9
+            else{
                 for (char hex = 'A'; hex <= 'F'; hex++){
                     if (remain == number){
                         hexBin.insert(29, 1, hex);
@@ -104,5 +107,6 @@ string dec2bh(string sdec, char bh){
         }
 
     }
+
     return hexBin;
 }
