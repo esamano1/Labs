@@ -47,13 +47,13 @@ vector<string> split(string target, string delimiter){
     vector<string> subCollector;
     string subString = "";
     for (int i = 0; i < target.length(); i++){
-        if(target[i] == delimiter[0]){
-           if(subString != ""){
+        if (target[i] == delimiter[0]){
+           if (subString != ""){
                 subCollector.push_back(subString);
                 subString = "";
            }
         }
-        else if(i == target.length() - 1){
+        else if (i == target.length() - 1){
             subString += target[i];
             subCollector.push_back(subString);
             subString = "";

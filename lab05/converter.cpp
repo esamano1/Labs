@@ -21,6 +21,12 @@ int main ( int argc, char *argv[] ) {
 
     if ( (arg1 == "d2b") || (arg1 == "d2h") ){
         string hexaBinary = dec2bh(arg2, arg1[2]);
+        if (arg1[2] == 'b'){
+            cout << "The value in binary is: ";
+        }
+        else{
+            cout << "The value in hexadecimal is: ";
+        }
         cout << hexaBinary << endl;
 
     }
@@ -56,10 +62,11 @@ int bin2d(string binstring){
         if (binstring[i] == '1'){
             sum += pow(2, (binstring.length() - 1) - i);
         }
-        else if(binstring[i] != '0'){
+        else if (binstring[i] != '0'){
             return -1;
         }
     }
+
     return sum;
 }
 
@@ -68,37 +75,37 @@ string dec2bh(string sdec, char bh){
     string hexBin = "";
 
     if (bh == 'b'){
-        hexBin += "The value in binary is: ";
         while (quot != 0){
             remain = quot % 2;
             quot = quot / 2;
             if (remain == 1){
-                hexBin.insert(24, 1, '1');
+                hexBin.insert(0, 1, '1');
             }
             else{
-                hexBin.insert(24, 1, '0');
+                hexBin.insert(0, 1, '0');
             }
         } 
     }
     else if (bh == 'h'){
-        hexBin += "The value in hexadecimal is: ";
         while (quot != 0){
             remain = quot % 16;
             quot = quot / 16;
-            int number = 0;
+            int number;
             if (remain <= 9){
+                number = 0;
                 for (char hex = '0'; hex <= '9'; hex++){
                     if (remain == number){
-                        hexBin.insert(29, 1, hex);
+                        hexBin.insert(0, 1, hex);
                         break;
                     }
                     number++;
                 }
             }
             else{
+                number = 10;
                 for (char hex = 'A'; hex <= 'F'; hex++){
                     if (remain == number){
-                        hexBin.insert(29, 1, hex);
+                        hexBin.insert(0, 1, hex);
                         break;
                     }
                     number++;
