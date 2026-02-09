@@ -73,7 +73,9 @@ int bin2d(string binstring){
 string dec2bh(string sdec, char bh){
     int quot(stoi(sdec)), remain(0);
     string hexBin = "";
-
+    if (quot == 0){
+        return "0";
+    }
     if (bh == 'b'){
         while (quot != 0){
             remain = quot % 2;
