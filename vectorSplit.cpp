@@ -10,18 +10,25 @@ using namespace std;
 vector<string> split(string target, string delimiter);
 
 int main() {
+    //declare two strings that will hold user input.
     string userString, delimiter;
-
+    
+    // Prompt user for the string to be split.
     cout << "Enter string to split:\n";
     getline(cin, userString);
+    
+    // Prompt user for the delimiter.
     cout << "Enter delimiter string:\n";
     getline(cin, delimiter);
-    
+
+    // Call split() to break the input string into pieces.
     vector<string> subStrs = split(userString, delimiter);
 
+    // If split() returned no substrings, report that then.
     if(subStrs.size() == 0){
         cout << "No substrings.\n";
     }
+    // Otherwise print each substring in quotes, separated by commas.
     else{
         cout << "The substrings are: ";
         for (int i = 0; i < subStrs.size(); i++){
@@ -36,24 +43,33 @@ int main() {
     return 0;
 }
 
-// MISSING FUNCTION DEFINITIONS HERE 
-// Make sure you have Pre-Conditions and Post-Conditions defined for each function you define here!
-// (you can remove these comments)
+// split()
+// Pre-conditions:
+//   1. target is the string to be split.
+//   2. delimiter is the delimiter string.
+// Post-conditions:
+//   1. Returns a vector of substrings from target
 vector<string> split(string target, string delimiter){
-    vector<string> subCollector;
-    string subString = "";
+    vector<string> subCollector;// stores all substrings that we extract.
+    string subString = "";// accumulates characters for the current substring.
+
+    // Scan through target one character at a time
     for (int i = 0; i < target.length(); i++){
+        // If we see the delimiter, we split target at that point.
         if (target[i] == delimiter[0]){
+            // Only store the substring if it's non-empty.
            if (subString != ""){
                 subCollector.push_back(subString);
-                subString = "";
+                subString = "";// reset to start building the next substring.
            }
         }
+        // If we're at the last character, we have to make sure we include it.
         else if (i == target.length() - 1){
             subString += target[i];
             subCollector.push_back(subString);
             subString = "";
         }
+        // Otherwise, this character is part of the current substring.
         else{
             subString += target[i];
         }
