@@ -13,7 +13,7 @@ string dec2bh(string sdec, char bh);
 int main ( int argc, char *argv[] ) {
 
     if (argc != 3){
-        cout << "Usage: converter <options: d2b, d2h, b2d> <value>\n";
+        cerr << "Usage: converter <options: d2b, d2h, b2d> <value>\n";
         exit(1);
     }
 
@@ -41,7 +41,7 @@ int main ( int argc, char *argv[] ) {
         }
     }
     else{
-        cout << "Usage: converter <optins: d2b, d2h, b2d> <value>\n";
+        cerr << "Usage: converter <options: d2b, d2h, b2d> <value>\n";
         exit(1);
     }
     // MISSING CODE HERE (you can remove these comments)
