@@ -56,10 +56,6 @@ int main ( int argc, char *argv[] ) {
         cerr << "Usage: converter <options: d2b, d2h, b2d> <value>\n";
         exit(1);
     }
-    // MISSING CODE HERE (you can remove these comments)
-    // Check to see if the command-line arguments are being used correctly
-    // Perform the conversion by calling the appropriate function
-    // What happens next?!!?
 
     return 0;
 }
