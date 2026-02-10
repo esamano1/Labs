@@ -40,10 +40,6 @@ int main() {
 // Make sure you have Pre-Conditions and Post-Conditions defined for each function you define here!
 // (you can remove these comments)
 vector<string> split(string target, string delimiter){
-    //create a string "str" that will change in size, and a vector of strings
-    //iterate over the length of the target string
-    //if the current character is equal to the delimiter then the "str" is pushed back into the the vector
-    //else they are not mathcing and you add the current character to the "str"
     vector<string> subCollector;
     string subString = "";
     for (int i = 0; i < target.length(); i++){
