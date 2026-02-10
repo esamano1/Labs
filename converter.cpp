@@ -12,14 +12,22 @@ string dec2bh(string sdec, char bh);
 
 int main ( int argc, char *argv[] ) {
 
+    
+    // Expect exactly 2 command-line arguments after program name:
+    // argv[1] = option, argv[2] = value
     if (argc != 3){
         cerr << "Usage: converter <options: d2b, d2h, b2d> <value>\n";
         exit(1);
     }
 
+    // Convert C-string arguments into C++ strings for easier comparison/manipulation
     string arg1(argv[1]), arg2(argv[2]);
 
+    // If option is decimal-to-binary (d2b) OR decimal-to-hex (d2h)
     if ( (arg1 == "d2b") || (arg1 == "d2h") ){
+        // arg1[2] is the third character:
+        // "d2b" -> 'b' ; "d2h" -> 'h'
+        // This is used to tell dec2bh whether to convert to binary or hex.
         string hexaBinary = dec2bh(arg2, arg1[2]);
         if (arg1[2] == 'b'){
             cout << "The value in binary is: ";
@@ -30,8 +38,11 @@ int main ( int argc, char *argv[] ) {
         cout << hexaBinary << endl;
 
     }
+    // If option is binary-to-decimal (b2d)
     else if (arg1 == "b2d"){
+        // Convert a binary string to an int
         int decimal = bin2d(arg2);
+        // bin2d returns -1 to signal "invalid binary string"
         if (decimal == -1){
             cout << "Binary value contains non-binary digits.\n";
             exit(1);
@@ -40,6 +51,7 @@ int main ( int argc, char *argv[] ) {
             cout << "The value in decimal is: " << decimal << endl;
         }
     }
+    // Any other option is invalid
     else{
         cerr << "Usage: converter <options: d2b, d2h, b2d> <value>\n";
         exit(1);
@@ -52,10 +64,12 @@ int main ( int argc, char *argv[] ) {
     return 0;
 }
 
-// MISSING FUNCTION DEFINITIONS HERE 
-// Make sure you have Pre-Conditions and Post-Conditions defined for each function you define here!
-// (you can remove these comments) else{
-
+// bin2d
+// Pre-conditions:
+//   binstring should be a string of only characters '0' and '1'
+// Post-conditions:
+//   - Returns the decimal (base-10) value of the binary string
+//   - Returns -1 if any character is not '0' or '1'
 int bin2d(string binstring){
     int sum = 0;
     for (int i = 0; i < binstring.length(); i++){
@@ -70,6 +84,16 @@ int bin2d(string binstring){
     return sum;
 }
 
+// dec2bh
+// Pre-conditions:
+//   sdec is a string of a non-negative integer 
+//   sdec should be within the range of int (because stoi is used)
+//   bh is either:
+//       'b' for binary output, or
+//       'h' for hexadecimal output
+// Post-conditions:
+//   Returns the binary or hex string representation of the decimal input
+//   For input "0", returns "0"
 string dec2bh(string sdec, char bh){
     int quot(stoi(sdec)), remain(0);
     string hexBin = "";
