@@ -9,6 +9,11 @@ double median(int *array, int size);
 double stddev(int *array, int size);
 
 int main(){
+    string filename("");
+    cout << "Enter filename: ";
+    cin >> filename;
+
+    cout << "Here are some statistics:\n"
 
     return 0;
 }
