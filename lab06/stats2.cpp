@@ -9,11 +9,46 @@ double median(int *array, int size);
 double stddev(int *array, int size);
 
 int main(){
+    cout << fixed << showpoint;
+    cout << setprecision(2);
+
     string filename("");
     cout << "Enter filename: ";
     cin >> filename;
 
-    cout << "Here are some statistics:\n"
+    ifstream inputFile;
+    inputFile.open(filename);
+
+    
+    //I could open the file, run a counter, then close the file. Make a dynamic int array of size counter and then open up the file again and read in the elements
+    //open file
+    //while not at end of filer:
+    //  counter++
+    //close file
+    //dynamic int array[counter]
+    //for (i = 0; i < counter; i++):
+    //  file >> array[i]
+    //close file
+    
+
+    
+    //open file
+    //counter = 0
+    //while file >> next:
+    //  counter++
+    //  if counter % 2 == 0
+    //      int* arr1 = new int[counter]
+    //      for (int i = 0; i < counter; i++)
+    //          
+    //  if counter % 2 == 1
+    //      int* arr2 = new int[counter]
+    //      for (f)
+
+    cout << "Here are some statistics:\n";
+    cout << setw(9) << "N: " << /* x */ << endl;
+    cout << setw(9) << "Average: " << average(grades, num_of_grades) << endl;
+    cout << setw(9) << "Median: " << median(grades, num_of_grades) << endl;
+    cout << setw(9) << "StdDev: " << stddev(grades, num_of_grades) << endl;
 
     return 0;
 }
