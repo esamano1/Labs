@@ -2,6 +2,7 @@
 #include <fstream>
 #include <iomanip>
 #include <iostream>
+using namespace std;
 
 void bubbleSort(int *array, int size);
 double average(int *array, int size);
@@ -18,37 +19,37 @@ int main(){
 
     ifstream inputFile;
     inputFile.open(filename);
+    if (inputFile.fail()){
+        cerr << "Cannot open " << filename << endl;
+        exit(1);
+    }
+    int counter(0), temp;
+    while (inputFile >> temp){
+        counter++;
+    }
+    inputFile.close();
 
+    int* dynarr = new int[counter];
+    inputFile.open(filename);
+    if (inputFile.fail()){
+        cerr << "Cannot open " << filename << endl;
+        exit(1);
+    }
+    for (int i = 0; i < counter; i++){
+        inputFile >> dynarr[i];
+    }
+    inputFile.close();
     
-    //I could open the file, run a counter, then close the file. Make a dynamic int array of size counter and then open up the file again and read in the elements
-    //open file
-    //while not at end of filer:
-    //  counter++
-    //close file
-    //dynamic int array[counter]
-    //for (i = 0; i < counter; i++):
-    //  file >> array[i]
-    //close file
     
-
-    
-    //open file
-    //counter = 0
-    //while file >> next:
-    //  counter++
-    //  if counter % 2 == 0
-    //      int* arr1 = new int[counter]
-    //      for (int i = 0; i < counter; i++)
-    //          
-    //  if counter % 2 == 1
-    //      int* arr2 = new int[counter]
-    //      for (f)
-
+    bubbleSort(dynarr, counter);
     cout << "Here are some statistics:\n";
-    cout << setw(9) << "N: " << /* x */ << endl;
-    cout << setw(9) << "Average: " << average(grades, num_of_grades) << endl;
-    cout << setw(9) << "Median: " << median(grades, num_of_grades) << endl;
-    cout << setw(9) << "StdDev: " << stddev(grades, num_of_grades) << endl;
+    cout << setw(9) << "N: " << counter << endl;
+    cout << setw(9) << "Average: " << average(dynarr, counter) << endl;
+    cout << setw(9) << "Median: " << median(dynarr, counter) << endl;
+    cout << setw(9) << "StdDev: " << stddev(dynarr, counter) << endl;
+
+    delete [] dynarr;
+    dynarr = nullptr;
 
     return 0;
 }
