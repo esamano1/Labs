@@ -29,28 +29,30 @@ int main(){
     }
     inputFile.close();
 
-    int* dynarr = new int[counter];
-    inputFile.open(filename);
-    if (inputFile.fail()){
-        cerr << "Cannot open " << filename << endl;
-        exit(1);
-    }
-    for (int i = 0; i < counter; i++){
-        inputFile >> dynarr[i];
-    }
-    inputFile.close();
+    if (counter > 0){
+        int* dynarr = new int[counter];
+        inputFile.open(filename);
+        if (inputFile.fail()){
+            cerr << "Cannot open " << filename << endl;
+            exit(1);
+        }
+        for (int i = 0; i < counter; i++){
+            inputFile >> dynarr[i];
+        }
+        inputFile.close();
     
     
-    bubbleSort(dynarr, counter);
-    cout << "Here are some statistics:\n";
-    cout << setw(9) << "N: " << counter << endl;
-    cout << setw(9) << "Average: " << average(dynarr, counter) << endl;
-    cout << setw(9) << "Median: " << median(dynarr, counter) << endl;
-    cout << setw(9) << "StdDev: " << stddev(dynarr, counter) << endl;
+        bubbleSort(dynarr, counter);
+        cout << "Here are some statistics:\n";
+        cout << setw(9) << "N: " << counter << endl;
+        cout << setw(9) << "Average: " << average(dynarr, counter) << endl;
+        cout << setw(9) << "Median: " << median(dynarr, counter) << endl;
+        cout << setw(9) << "StdDev: " << stddev(dynarr, counter) << endl;
 
-    delete [] dynarr;
-    dynarr = nullptr;
-
+        delete [] dynarr;
+        dynarr = nullptr;
+    }
+        
     return 0;
 }
 
