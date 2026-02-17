@@ -35,14 +35,12 @@ int main() {
     string lastWord(""), nextWord("");
     while (!inputFile.eof()){
         getline(inputFile, nextWord);
+        lineCount++;
         nextWord = findLastWord(nextWord);
         cleanUp(nextWord);
         if (compareWords(lastWord, nextWord)){
             rhymeCount++;
             cout << lastWord << " and " << nextWord << endl;
-        }
-        if (nextWord != ""){
-            lineCount++;
         }
         lastWord = nextWord;
     }
