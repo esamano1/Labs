@@ -22,7 +22,7 @@ int main() {
 
     ifstream inputFile;
     string filename;
-    cout << "Enter file name: ";
+    cout << "Enter filename: ";
     cin >> filename;
 
     inputFile.open(filename);
