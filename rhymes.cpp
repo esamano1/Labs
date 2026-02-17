@@ -90,11 +90,11 @@ string findLastWord(string line){
     
     int i = line.length() - 1;
     while (i >= 0){
-        if ( (word[i] >= 'A') && (word[i] <= 'Z') ){
+        if ( (line[i] >= 'A') && (line[i] <= 'Z') ){
             last = line[i] + last; //can maybe use +=
             break;
         }
-        else if ((word[i] >= 'a') && (word[i] <= 'z')){
+        else if ((line[i] >= 'a') && (line[i] <= 'z')){
             last = line[i] + last; // can combine if and else if into one if statement
             break;
         }
