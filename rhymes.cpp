@@ -85,7 +85,7 @@ int main() {
 string findLastWord(string line){
     string last = "";
 
-    
+    /*
     int i = line.length() - 1;
     while (i >= 0){
         if ( (line[i] >= 'A') && (line[i] <= 'Z') ){
@@ -106,10 +106,10 @@ string findLastWord(string line){
             break;
         }
     }
+    */
+
+
     
-
-
-    /*
     //if line is empty then skips for loop and returns an empty string. Need to make sure not to count empty lines.
     for (int i = line.length() - 1; i >= 0; i--){
         if (line[i] != ' '){
@@ -119,7 +119,7 @@ string findLastWord(string line){
             break;
         }
     }
-    */
+    
     
     return last;
 }
