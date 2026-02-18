@@ -101,8 +101,8 @@ string findLastWord(string line){
         i--;
     }
     for (int j = i - 1; j >= 0; j--){
-        if (line[i] != ' '){
-            last = line[i] + last;
+        if (line[j] != ' '){
+            last = line[j] + last;
         }
         else{
             break;
