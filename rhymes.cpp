@@ -33,8 +33,8 @@ int main() {
     
     int lineCount(0), rhymeCount(0);
     string lastWord(""), nextWord("");
-    while (!inputFile.eof()){
-        getline(inputFile, nextWord);
+    while (getline(inputFile, nextWord)){
+        //getline(inputFile, nextWord);
         lineCount++;
         nextWord = findLastWord(nextWord);
         cleanUp(nextWord);
