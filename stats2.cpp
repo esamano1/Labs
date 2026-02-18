@@ -10,38 +10,54 @@ double median(int *array, int size);
 double stddev(int *array, int size);
 
 int main(){
+    // Format all floating-point output to show 2 decimals
     cout << fixed << showpoint;
     cout << setprecision(2);
 
+    // Get input filename from user
     string filename("");
     cout << "Enter filename: ";
     cin >> filename;
 
+    // Open the file for reading
     ifstream inputFile;
     inputFile.open(filename);
+
+    // If file couldn't be opened, print error message and exit
     if (inputFile.fail()){
         cerr << "Cannot open " << filename << endl;
         exit(1);
     }
+
+    // First pass through the file and count how many integers it contains
     int counter(0), temp;
     while (inputFile >> temp){
         counter++;
     }
     inputFile.close();
 
+    // Only continue if the file contains at least one integer
     if (counter > 0){
+
+        // Create a dynamic array big enough to hold all the integers
         int* dynarr = new int[counter];
+
+        // Re-open the file for the second pass-through to actually read in the integers
+        // If file couldn't be opened, print error message and exit
         inputFile.open(filename);
         if (inputFile.fail()){
             cerr << "Cannot open " << filename << endl;
             exit(1);
         }
+
+        // Read exactly 'counter' number of integers into dynarr
+        // Then close the file
         for (int i = 0; i < counter; i++){
             inputFile >> dynarr[i];
         }
         inputFile.close();
     
-    
+        // Sort the array so median() works correctly
         bubbleSort(dynarr, counter);
         cout << "Here are some statistics:\n";
         cout << setw(9) << "N: " << counter << endl;
