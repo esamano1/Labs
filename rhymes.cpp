@@ -1,14 +1,8 @@
-// Include statements go here...
 #include <fstream>
 #include <iostream>
 #include <iomanip>
 #include <string>
 using namespace std;
-
-// FUNCTION DECLARATIONS: YOU MUST DEFINE AND USE THESE (do not remove):
-//      You can declare/define other functions if you like as well,
-//      but you must use the 3 functions below.
-// See lab description for more on these functions.
 
 string findLastWord(string line);
 void cleanUp(string &word);
@@ -34,7 +28,6 @@ int main() {
     int lineCount(0), rhymeCount(0);
     string lastWord(""), nextWord("");
     while (getline(inputFile, nextWord)){
-        //getline(inputFile, nextWord);
         lineCount++;
         nextWord = findLastWord(nextWord);
         cleanUp(nextWord);
@@ -58,59 +51,12 @@ int main() {
         cout << "There are " << lineCount << " lines in this poem.\n";
     }
     
-
-
-
-
-    /*
-    string str;
-    getline(cin, str);
-    string last = findLastWord(str);
-    cout << "last word: " << last << endl;
-    cleanUp(last);
-    cout << "cleaned up: " << last << endl;
-    */
-
-    // MISSING CODE HERE (you can remove these comments)
-    // Create input stream object, then get a filename from user (check it too)
-    // Read the lines in your file and check on rhyming, per our definition
-    // Finally, print the results (see lab descriptions for examples)
-
     return 0;
 }
 
-// MISSING FUNCTION DEFINITIONS HERE
-// Make sure you have Pre-Conditions and Post-Conditions defined for each function you define here!
-// (you can remove these comments)
+
 string findLastWord(string line){
     string last = "";
-
-    /*
-    int i = line.length() - 1;
-    while (i >= 0){
-        if ( (line[i] >= 'A') && (line[i] <= 'Z') ){
-            last = line[i] + last; //can maybe use +=
-            break;
-        }
-        else if ((line[i] >= 'a') && (line[i] <= 'z')){
-            last = line[i] + last; // can combine if and else if into one if statement
-            break;
-        }
-        i--;
-    }
-    for (int j = i - 1; j >= 0; j--){
-        if (line[j] != ' '){
-            last = line[j] + last;
-        }
-        else{
-            break;
-        }
-    }
-    */
-
-
-    
-    //if line is empty then skips for loop and returns an empty string. Need to make sure not to count empty lines.
     for (int i = line.length() - 1; i >= 0; i--){
         if (line[i] != ' '){
             last = line[i] + last;
@@ -119,7 +65,6 @@ string findLastWord(string line){
             break;
         }
     }
-    
     
     return last;
 }
