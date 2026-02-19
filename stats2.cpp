@@ -59,19 +59,25 @@ int main(){
     
         // Sort the array so median() works correctly
         bubbleSort(dynarr, counter);
+        
+         // Print a summary of the statistics of the file
         cout << "Here are some statistics:\n";
         cout << setw(9) << "N: " << counter << endl;
         cout << setw(9) << "Average: " << average(dynarr, counter) << endl;
         cout << setw(9) << "Median: " << median(dynarr, counter) << endl;
         cout << setw(9) << "StdDev: " << stddev(dynarr, counter) << endl;
 
+        // Free allocated memory
         delete [] dynarr;
         dynarr = nullptr;
     }
-        
+
+    // If counter == 0, program prints nothing beyond user prompts and exits normally.
     return 0;
 }
 
+// Pre-Condition:: It takes in a dynamic int array and its size
+// Post-Condition: It sorts the array in ascending order of its values
 void bubbleSort(int *array, int size){
     int temp;
     for (int i = size-1; i >= 0; i--){
@@ -85,6 +91,8 @@ void bubbleSort(int *array, int size){
     }
 }
 
+// Pre-Condition: It takes in a dynamic int array and its size
+// Post-conditon: Returns the average of all the elements in the dynamic array.
 double average(int *array, int size){
     double sum = 0;
     for (int i = 0; i < size; i++){
@@ -94,6 +102,8 @@ double average(int *array, int size){
     return (sum / size);
 }
 
+// Pre-Condition: It takes in a dynamic int array and its size
+// Post-condition: Returns the median of all the elements in the dynamic array
 double median(int *array, int size){
     if (size % 2 == 0){
         double sum = 0;
@@ -106,6 +116,8 @@ double median(int *array, int size){
     }
 }
 
+// Pre-Condition: It takes in a dynamic int array and its size
+// Post-condition; Returns the standard deviation of the elements in the dynamic array.
 double stddev(int *array, int size){
     if (size == 1){
         return 0;
