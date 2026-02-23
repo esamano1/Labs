@@ -26,13 +26,11 @@ int main() {
     infile.close();
 
     // 2. Get size of file to then create dynamic array
-    //      Note: You HAVE to use the functions:
-    //      getFileSize() and getArray() here
     int size = getFileSize(infile, filename);
     int* arr = new int[size];
     getArray(infile, filename, arr, size);
     
-    // 3. Print original array (see PDF lab description for details)
+    // 3. Print original array
     cout << "Original array:\n";
     for (int i = 0; i < size; i++){
         cout << arr[i] << " ";
@@ -45,17 +43,18 @@ int main() {
     cin >> desc;
 
     // 5. Run selection sort on the array
-    //      Note: You HAVE to use the function sort() here
     sort(desc, arr, size, 0);
 
-    // 6. Print sorted array (see PDF lab description for details)
+    // 6. Print sorted array 
     cout << "Sorted array:\n";
     for (int i = 0; i < size; i++){
         cout << arr[i] << " ";
     }
     cout << endl;
 
+    // free allocated memory
     delete [] arr;
     arr = nullptr;
+    
     return 0;
 }
