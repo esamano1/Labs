@@ -9,7 +9,7 @@ using namespace std;
 
 int main() {
 
-    // 1. Get a string from the user (see examples given)
+    // 1. Get a string from the user
     string userInput;
     cout << "Enter sentence:\n";
     getline(cin, userInput);
@@ -21,7 +21,7 @@ int main() {
     bool isPalin;
     isPalin = isPalindrome(userInput);
 
-    // 4. Print out message accordingly (see examples given)
+    // 4. Print out message accordingly
     if (isPalin){
         cout << "It is a palindrome.\n";
     }
