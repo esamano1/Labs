@@ -11,7 +11,7 @@ palindrome: palindrome.cpp pfunctions.cpp pheaders.h
 selectionSort: selectionSort.cpp sfunctions.cpp sheaders.h
 	g++ -c selectionSort.cpp -o selectionSort.o
 	g++ -c sfunctions.cpp -o sfunctions.o
-	g++ selectionSort.o palindrome.o -o selectionSort -Wall -std=c++17
+	g++ selectionSort.o sfunctions.o -o selectionSort -Wall -std=c++17
 
 clean:
 	rm vertical
