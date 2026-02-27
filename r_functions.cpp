@@ -28,7 +28,7 @@ void InitializeStructures(UndergradStudents us[], int &size){
         us[size].firstName = quit;
 
         cout << "Student 0" << size + 1 << ":Enter last name: ";
-        getline(cin, a[size].lastName);
+        getline(cin, us[size].lastName);
         cout << "Student 0" << size + 1 << ":Enter major: ";
         cin >> us[size].major;
 
@@ -54,7 +54,7 @@ void InitializeStructures(UndergradStudents us[], int &size){
         us[size].firstName = quit;
 
         cout << "Student " << size + 1 << ":Enter last name: ";
-        getline(cin, a[size].lastName);
+        getline(cin, us[size].lastName);
         cout << "Student " << size + 1 << ":Enter major: ";
         cin >> us[size].major;
 
@@ -81,8 +81,11 @@ void WriteResults(ofstream &outf, UndergradStudents us[], int size){
     outf << "These are the results sorted by last name:\n";
     for (int i = 0; i < size; i++){
         avgGPA = (us[i].1stGPA + us[i].2ndGPA + us[i].3rdGPA + us[i].4thGPA)/4;
-        outf << "ID# " << us[i].studentID << ": " << us[i].lastName << ": "
-            << us[i].firstName << ": " << us[i].major << ": " << avgGPA << endl;
+        outf << "ID# " << us[i].studentID 
+            << ": " << us[i].lastName 
+            << ": " << us[i].firstName 
+            << ": " << us[i].major 
+            << ": " << avgGPA << endl;
     }
     outf.close()
 }
