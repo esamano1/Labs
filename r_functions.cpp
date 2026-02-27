@@ -1,6 +1,8 @@
 // file: r_functions.cpp
 // Eduardo Samano
 // Define the functions, per the list in r_headers.h
+#include "r_structs.h"
+#include "r_headers.h"
 
 void NameSort(UndergradStudents array[], int size){
     for (int i = size; i >= 1; i--){
