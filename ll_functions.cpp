@@ -82,10 +82,6 @@ void printLL(LinkNodePtr h) {
 //     inserts a new node AFTER the node at that position.
 //     If the list is empty, prints an error and performs no insertion.
 //     If the user enters a negative position, exits without changes.
- *
- * Implementation details:
- *   - First computes list length by traversing the list once.
- *   - Then traverses again to the specified position and performs a link splice.
 void insertNodeAfter(LinkNodePtr &h) {
     //
     if (h == nullptr){
