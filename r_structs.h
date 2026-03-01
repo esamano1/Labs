@@ -6,5 +6,5 @@ struct UndergradStudents{
     int studentID;
     string firstName, lastName;
     string major;
-    float 1stGPA, 2ndGPA, 3rdGPA, 4thGPA;
+    float GPA1st, GPA2nd, GPA3rd, GPA4th;
 };

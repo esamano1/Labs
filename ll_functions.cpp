@@ -1,7 +1,4 @@
 // file: ll_functions.cpp
-#include <iostream>
-#include <string>
-#include "ll_headers.h"
 
 // Used in the function createLL()
 // This function is started for you correctly - you have to complete it.
@@ -24,7 +21,7 @@ void h_insert(LinkNodePtr& head, string nom, int num) {
         head = tmp_ptr;
     }
     else{
-        LinkNodePtr tempHead = head
+        LinkNodePtr tempHead = head;
         while (tempHead->link != nullptr){
             tempHead = tempHead->link;
         }
@@ -52,25 +49,25 @@ void createLL(LinkNodePtr& h) {
 void printLL(LinkNodePtr h) {
     // Incomplete function - student must complete
     int nodeCount = 0;
+    if (h == nullptr){
+        cout << "This list is empty.\n";
+        return;
+    }
     cout << "Printing the list:\n";
     while (h != nullptr){
         cout << "Node #" << nodeCount << ": " << h->name << ", " << h->number << endl;
         h = h->link;
         nodeCount++;
     }
-    if (nodeCount == 0){
-        cout << "This list is empty.\n";
-        return;
-    }
     cout << "--------\n";
 }
 
-void insertNodeAfter(LinkNodePtr h) {
+void insertNodeAfter(LinkNodePtr &h) {
     //
     LinkNodePtr temph = h;
     int listLength = 0;
     while (temph != nullptr){
-        listLenght++;
+        listLength++;
         temph = temph->link;
     }
     temph = h;
