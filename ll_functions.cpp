@@ -89,9 +89,9 @@ void insertNodeAfter(LinkNodePtr &h) {
         return;
     }
 
-    /*
+    
     LinkNodePtr temph = h;
-    int listLength = 0;
+    /*int listLength = 0;
     while (temph != nullptr){
         listLength++;
         temph = temph->link;
