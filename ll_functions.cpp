@@ -110,10 +110,6 @@ void insertNodeAfter(LinkNodePtr &h) {
             return;
         }*/
         else{
-            string nombre;
-            int num;
-            cout << "Enter data (name, then number): ";
-            cin >> nombre >> num;
             for (int i = 0; i < position; i++){
                 temph = temph->link;
                 if (temph == nullptr){
@@ -122,6 +118,11 @@ void insertNodeAfter(LinkNodePtr &h) {
                 }
             }
 
+            string nombre;
+            int num;
+            cout << "Enter data (name, then number): ";
+            cin >> nombre >> num;
+            
             LinkNodePtr tempPtr;
             tempPtr = new LinkNode;
             tempPtr->name = nombre;
