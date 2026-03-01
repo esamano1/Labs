@@ -83,82 +83,93 @@ void printLL(LinkNodePtr h) {
 //     If the list is empty, prints an error and performs no insertion.
 //     If the user enters a negative position, exits without changes.
 void insertNodeAfter(LinkNodePtr &h) {
-    //
+    // If list is empty, print a message saying so, and then quit
     if (h == nullptr){
         cout << "Cannot insert in a non-existing link.\n";
         return;
     }
 
-    
-    LinkNodePtr temph = h;
-    /*int listLength = 0;
-    while (temph != nullptr){
-        listLength++;
-        temph = temph->link;
+    // If the linked iist is not empty, prompt the user the node position to insert a new node after
+    int position;
+    cout << "Enter node position to insert new node after (enter negative number to exit): ";
+    cin >> position;
+
+    // If position is negative, quit the funciton without doing anything
+    if (position < 0){
+        return;
     }
-    temph = h;
-*/
-     
-        int position;
-        cout << "Enter node position to insert new node after (enter negative number to exit): ";
-        cin >> position;
-        if (position < 0){
-            return;
-        }
-        /*else if (position >= listLength){
+
+    // Otherwise, start moving a copy of the header to the node at index = position.
+    LinkNodePtr temph = h;
+    for (int i = 0; i < position; i++){
+        temph = temph->link;
+        if (temph == nullptr){ // if temph equals to nullptr, we have already passed the last node and we exit the function with an error message
             cout << "Position entered is illegal. Nothing inserted.\n";
             return;
-        }*/
-        else{
-            for (int i = 0; i < position; i++){
-                temph = temph->link;
-                if (temph == nullptr){
-                    cout << "Position entered is illegal. Nothing inserted.\n";
-                    return;
-                }
-            }
-
-            string nombre;
-            int num;
-            cout << "Enter data (name, then number): ";
-            cin >> nombre >> num;
-            
-            LinkNodePtr tempPtr;
-            tempPtr = new LinkNode;
-            tempPtr->name = nombre;
-            tempPtr->number = num;
-            tempPtr->link = temph->link;
-
-            temph->link = tempPtr;
         }
-    
+    }
+
+    // Prompt the user for node data and read it in
+    string nombre;
+    int num;
+    cout << "Enter data (name, then number): ";
+    cin >> nombre >> num;
+
+    // Create the new node with the user input
+    LinkNodePtr tempPtr;
+    tempPtr = new LinkNode;
+    tempPtr->name = nombre;
+    tempPtr->number = num;
+
+    // Insert the new node after temph
+    tempPtr->link = temph->link;
+    temph->link = tempPtr;
 }
 
+// Pre-conditions:
+//     h is either nullptr or points to a linked list
+// Post-conditions:
+//     Prints the largest number in the linked list
+//     Prints an empty-list message if the list is empty
 void findMax(LinkNodePtr h) {
-    // Incomplete function - student must complete
+    
+    // Handle the empty list case
     if (h == nullptr){
         cout << "This list is empty.\n";
         return;
     }
-    
+
+    // Otherwise, initialize max with the first node's number
     int max = h->number;
+
+    // Traverse through the nodes and update max whenever it encounters a larger value
     while (h != nullptr){
         if (h->number > max){
             max = h->number;
         }
         h = h->link;
     }
+    
     cout << "Largest number in the list is: " << max << endl;
 }
 
+// Pre-conditions:
+//     h is either nullptr or points to a valid singly-linked list
+// Post-conditions:
+//     Prints the smallest number in the linked list
+//     Prints an empty-list message if the list is empty
 void findMin(LinkNodePtr h) {
-    // Incomplete function - student must complete
+
+    // Handles the empty list case
     if (h == nullptr){
         cout << "This list is empty.\n";
         return;
     }
 
+    // Otherwise, initialize max with the first node's number
     int min = h->number;
+
+    // Traverse through the nodes and update min whenever it encounters a smaller value
     while (h != nullptr){
         if (h->number < min){
             min = h->number;
