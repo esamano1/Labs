@@ -109,35 +109,36 @@ void insertNodeAfter(LinkNodePtr &h) {
 
 void findMax(LinkNodePtr h) {
     // Incomplete function - student must complete
-    int max(0), listLength(0);
+    if (h == nullptr){
+        cout << "This list is empty.\n";
+        return;
+    }
+    
+    int max = h->number;
     while (h != nullptr){
-        listLength++;
         if (h->number > max){
             max = h->number;
         }
         h = h->link;
-    }
-    if (listLength == 0){
-        cout << "This list is empty.\n";
-        return;
     }
     cout << "Largest number in the list is: " << max << endl;
 }
 
 void findMin(LinkNodePtr h) {
     // Incomplete function - student must complete
-    int min(0), listLength(0);
+    if (h == nullptr){
+        cout << "This list is empty.\n";
+        return;
+    }
+
+    int min = h->number;
     while (h != nullptr){
-        listLength++;
         if (h->number < min){
             min = h->number;
         }
         h = h->link;
     }
-    if (listLength == 0){
-        cout << "This list is empty.\n";
-        return;
-    }
+
     cout << "Smallest number in the list is: " << min << endl;
 }
 
