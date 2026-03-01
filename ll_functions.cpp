@@ -1,4 +1,6 @@
 // file: ll_functions.cpp
+#include <iostream>
+#include <string>
 #include "ll_headers.h"
 
 // Used in the function createLL()

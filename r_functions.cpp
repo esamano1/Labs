@@ -1,6 +1,10 @@
 // file: r_functions.cpp
 // Eduardo Samano
 // Define the functions, per the list in r_headers.h
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <iomanip>
 #include "r_structs.h"
 #include "r_headers.h"
 
