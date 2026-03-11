@@ -6,7 +6,7 @@ class AString {
     // CODE MISSING HERE!
     public:
         AString();
-        Astring(string str);
+        AString(string str);
         string getStringValue();
         void cleanUp();
         void countLetters(int letterCount[]);
