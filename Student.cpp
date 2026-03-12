@@ -4,6 +4,9 @@
 Student::Student(int p, 
 		      string lName, 
 		      string fName) {
+    perm = p;
+    lastName = lName;
+    firstAndMiddleNames = fName;
   // THIS EMPTY CONSTRUCTOR IS A STUB
   // DELETE THESE COMMENTS AND REPLACE WITH APPROPRIATE CODE
   // REMEMBER: PURPOSE OF A CONSTRUCTOR IS TO INITIALIZE 
@@ -13,19 +16,19 @@ Student::Student(int p,
 // THE NEXT 4 MEMBER FUNCTIONS NEED TO BE DEFINED BY THE STUDENT
 //      AND ARE, IN THE MEANTIME, DEFINED AS STUBS:
 int Student::getPerm() { 
-  return -999;
+  return perm;
 }
 
 string Student::getLastName() { 
-  return "stub";
+  return lastName;
 }
 
 string Student::getFirstAndMiddleNames() { 
-  return "stub";
+  return firstAndMiddleNames;
 }
 
 string Student::getFullName() { 
-  return "stub";
+  return firstAndMiddleNames + " " + lastName;
 }
 
 // THIS MEMBER FUNCTION IS DEFINED FOR YOU ALREADY:
