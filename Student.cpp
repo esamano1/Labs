@@ -1,32 +1,31 @@
 #include "Student.h"
 #include <sstream> // for ostringstream
 
+// Initializes the perm number and name variables of the student class
 Student::Student(int p, 
 		      string lName, 
 		      string fName) {
     perm = p;
     lastName = lName;
-    firstAndMiddleNames = fName;
-  // THIS EMPTY CONSTRUCTOR IS A STUB
-  // DELETE THESE COMMENTS AND REPLACE WITH APPROPRIATE CODE
-  // REMEMBER: PURPOSE OF A CONSTRUCTOR IS TO INITIALIZE 
-  // ALL DATA MEMBERS WITH REASONABLE VALUES  
+    firstAndMiddleNames = fName; 
 }
 
-// THE NEXT 4 MEMBER FUNCTIONS NEED TO BE DEFINED BY THE STUDENT
-//      AND ARE, IN THE MEANTIME, DEFINED AS STUBS:
+// Returns the perm number of the student
 int Student::getPerm() { 
   return perm;
 }
 
+// Returns The student's last name
 string Student::getLastName() { 
   return lastName;
 }
 
+// Returns the first and middle names of the student
 string Student::getFirstAndMiddleNames() { 
   return firstAndMiddleNames;
 }
 
+// Returns the full name of the student
 string Student::getFullName() { 
   return firstAndMiddleNames + " " + lastName;
 }
