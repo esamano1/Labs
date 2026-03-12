@@ -3,7 +3,6 @@
 // Define class AString here!
 // See PDF for details
 class AString {
-    // CODE MISSING HERE!
     public:
         AString();
         AString(string str);
